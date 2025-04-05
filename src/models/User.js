@@ -24,7 +24,7 @@ const User = sequelize.define(
         }
     },
     {
-        tableName: 'user',
+        tableName: 'users',
         timestamps: true
 
     }
