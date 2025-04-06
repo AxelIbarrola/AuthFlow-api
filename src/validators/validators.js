@@ -12,4 +12,4 @@ const validateUserFields = [
     .isLength({min:  6}).withMessage(`❌ The password must have a minimum 6 characters`)
 ]
 
-module.exports =  validateUserFields 
+module.exports =  { validateUserFields }
