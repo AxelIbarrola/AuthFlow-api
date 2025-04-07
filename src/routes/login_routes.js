@@ -1,13 +1,12 @@
 const router = require('express').Router()
 const {validateUserFields} = require('../validators/validators')
 const {handleValidation} = require('../middlewares/handleValidation')
-const { register } = require('../controllers/auth_controller')
+const { login } = require('../controllers/login_controller')
 
 router
-.post(`/register`,
-    validateUserFields,
-    handleValidation,
-    register
-)
+.post('/login', 
+    validateUserFields, 
+    handleValidation, 
+    login)
 
 module.exports =  router 

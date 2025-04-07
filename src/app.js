@@ -3,7 +3,8 @@ const app = express()
 const {errorHandler} = require('./middlewares/errorHandler')
 require('dotenv').config()
 const PORT = process.env.PORT
-const authRoutes = require('./routes/auth_routes')
+const registerRoutes = require('./routes/register_routes')
+const loginRoutes = require('./routes/login_routes')
 
 app.use(express.json())
 
@@ -13,6 +14,7 @@ app.listen(PORT,
 
 app.get('/', (req, res) => {res.send('Ax')})
 
-app.use('/api', authRoutes)
+app.use('/api/auth', registerRoutes)
+app.use('/api/auth', loginRoutes)
 
 app.use(errorHandler)
