@@ -6,7 +6,7 @@ router
     verifyToken,
     (req, res) => {
         res.status(200).json({
-            message: 'Profile acced granted.',
+            message: 'Profile access granted.',
             user: req.user
         })
     }
