@@ -6,6 +6,7 @@ const PORT = process.env.PORT
 const registerRoutes = require('./routes/register_routes')
 const loginRoutes = require('./routes/login_routes')
 const profileRoutes = require('./routes/profile_routes')
+const refreshRoutes = require('./controllers/refresh_token')
 
 app.use(express.json())
 
@@ -18,5 +19,6 @@ app.get('/', (req, res) => {res.send('Ax')})
 app.use('/api/auth', registerRoutes)
 app.use('/api/auth', loginRoutes)
 app.use('/api', profileRoutes)
+app.use('/api', refreshRoutes)
 
 app.use(errorHandler)
