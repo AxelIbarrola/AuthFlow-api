@@ -3,10 +3,12 @@ const app = express()
 const {errorHandler} = require('./middlewares/errorHandler')
 require('dotenv').config()
 const PORT = process.env.PORT
-const registerRoutes = require('./routes/register_routes')
-const loginRoutes = require('./routes/login_routes')
-const profileRoutes = require('./routes/profile_routes')
-const refreshRoutes = require('./controllers/refresh_token')
+const registerRoutes = require('./routes/register_routes');
+const loginRoutes = require('./routes/login_routes');
+const profileRoutes = require('./routes/profile_routes');
+const refreshRoutes = require('./routes/refresh_routes');
+const logoutRoutes = require('./routes/logout_routes');
+
 
 app.use(express.json())
 
@@ -20,5 +22,6 @@ app.use('/api/auth', registerRoutes)
 app.use('/api/auth', loginRoutes)
 app.use('/api', profileRoutes)
 app.use('/api', refreshRoutes)
+app.use('/api', logoutRoutes)
 
 app.use(errorHandler)

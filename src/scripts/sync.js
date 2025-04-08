@@ -1,6 +1,6 @@
 const { sequelize } = require('../config/database');
 const { User } = require('../models/User');
-
+const { RefreshTokens } = require('../models/RefreshTokens');
 (
     async() => {
 

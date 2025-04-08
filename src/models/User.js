@@ -1,5 +1,6 @@
 const { sequelize } = require('../config/database');
 const { DataTypes } = require('sequelize');
+const { RefreshTokens } = require('./RefreshTokens');
 
 const User = sequelize.define(
     'User',
@@ -29,5 +30,8 @@ const User = sequelize.define(
 
     }
 )
+
+User.hasMany(RefreshTokens, { foreignKey: 'userId'})
+RefreshTokens.belongsTo(User, { foreignKey: 'userId'})
 
 module.exports =  { User }

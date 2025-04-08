@@ -1,4 +1,5 @@
 const { User } = require('../models/User')
+const { RefreshTokens } = require('../models/RefreshTokens');
 const bcrypt = require('bcrypt');
 const { generateToken, generateRefreshToken } = require('../utils/generate_token')
 
@@ -29,6 +30,11 @@ const register = async(req, res, next) => {
         const refreshToken = generateRefreshToken({
             id: newUser.id,
             email: newUser.email
+        })
+
+        await RefreshTokens.create({ 
+            token: refreshToken,
+            userId: newUser.id
         })
 
         res.status(201).json({
