@@ -14,4 +14,18 @@ const generateToken = (user) => {
     return token
 }
 
-module.exports = { generateToken }
+const generateRefreshToken = (user) => {
+    const payload = {
+        user: {
+            id: user.id,
+            email: user.email
+        }
+    }
+
+    const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {expiresIn: '7d'})
+
+    return refreshToken
+
+}
+
+module.exports = { generateToken, generateRefreshToken }
