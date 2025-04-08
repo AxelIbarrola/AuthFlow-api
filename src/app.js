@@ -8,6 +8,8 @@ const loginRoutes = require('./routes/login_routes');
 const profileRoutes = require('./routes/profile_routes');
 const refreshRoutes = require('./routes/refresh_routes');
 const logoutRoutes = require('./routes/logout_routes');
+const logoutAllRoutes = require('./routes/logoutAll_routes');
+
 
 
 app.use(express.json())
@@ -23,5 +25,7 @@ app.use('/api/auth', loginRoutes)
 app.use('/api', profileRoutes)
 app.use('/api', refreshRoutes)
 app.use('/api', logoutRoutes)
+app.use('/api', logoutAllRoutes)
+
 
 app.use(errorHandler)

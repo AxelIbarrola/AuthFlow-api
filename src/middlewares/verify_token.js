@@ -5,8 +5,8 @@ const verifyToken = (req, res, next) => {
 
     const authHeader = req.headers['authorization']
 
-    if (!authHeader) {
-        return res.status(401).json({ error: '❌ No token provided.' })
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: '❌ Invalid token format.' })
     }
 
     const token = authHeader.split(' ')[1]
