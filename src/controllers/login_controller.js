@@ -1,6 +1,6 @@
 const { User } = require('../models/User');
 const bcrypt = require('bcrypt');
-const { generateToken } = require('../utils/generate_token')
+const { generateToken, generateRefreshToken } = require('../utils/generate_token')
 require('dotenv').config()
 
 const login = async (req, res, next) => {
@@ -30,7 +30,13 @@ const login = async (req, res, next) => {
             email: existingUser.email
         })
 
-        res.status(200).json({ token })
+        const refreshToken = generateRefreshToken({
+            id: existingUser.id,
+            email: existingUser.email
+        }
+        )
+
+        res.status(200).json({ token, refreshToken })
 
     } catch(error) {
         next(error)

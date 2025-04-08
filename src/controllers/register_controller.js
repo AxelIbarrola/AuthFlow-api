@@ -1,6 +1,6 @@
 const { User } = require('../models/User')
 const bcrypt = require('bcrypt');
-const { generateToken } = require('../utils/generate_token')
+const { generateToken, generateRefreshToken } = require('../utils/generate_token')
 
 const register = async(req, res, next) => {
 
@@ -26,6 +26,11 @@ const register = async(req, res, next) => {
             email: newUser.email
         })
 
+        const refreshToken = generateRefreshToken({
+            id: newUser.id,
+            email: newUser.email
+        })
+
         res.status(201).json({
             message: '✅ User registered successfully',
             user: {
@@ -33,7 +38,8 @@ const register = async(req, res, next) => {
                 email: newUser.email,
                 createdAt: newUser.createdAt
             },
-            token
+            token,
+            refreshToken
         })
 
     } catch(error) {
