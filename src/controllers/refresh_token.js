@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken')
-require('dotenv').config()
-const { generateToken, generateRefreshToken } = require('../utils/generate_token')
-const { RefreshTokens } = require('../models/RefreshTokens')
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const { generateToken, generateRefreshToken } = require('../utils/generate_token');
+const { RefreshTokens } = require('../models/RefreshTokens');
 
 const refresh = async (req, res, next) => {
 

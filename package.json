@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/app.js",
-    "cleanup": "node ./src/scripts/cleanup_refresh_tokens.js"
+    "cleanup": "node ./src/scripts/cleanup_refresh_tokens.js",
+    "sync": "node ./src/scripts/sync.js"
   },
   "repository": {
     "type": "git",

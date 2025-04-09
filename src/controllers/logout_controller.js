@@ -1,4 +1,4 @@
-const RefreshTokens = require('../models/refresh_tokens');
+const {RefreshTokens} = require('../models/RefreshTokens');
 
 const logout = async (req, res, next) => {
 

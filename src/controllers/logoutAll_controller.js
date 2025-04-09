@@ -1,6 +1,6 @@
-const { RefreshToken } = require('../models/RefreshToken');
+const { RefreshToken } = require('../models/RefreshTokens');
 const jwt = require('jsonwebtoken');
-require('dotenv').config()
+require('dotenv').config();
 
 const logoutAll = async (req, res, next) => {
 

@@ -1,6 +1,6 @@
-const { RefreshTokens } = require('../models/RefreshTokens')
-const jwt = require('jsonwebtoken')
-require('dotenv').config()
+const { RefreshTokens } = require('../models/RefreshTokens');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const cleanupExpiredTokens = async () => {
     try {

@@ -1,5 +1,5 @@
-const router = require('express').Router()
-const { verifyToken } = require('../middlewares/verify_token')
+const router = require('express').Router();
+const { verifyToken } = require('../middlewares/verify_token');
 
 router
 .get('/profile',
