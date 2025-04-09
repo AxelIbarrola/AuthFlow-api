@@ -150,7 +150,7 @@ AuthFlow API es una solución robusta para la gestión de autenticación y autor
 
 + Limpieza manual de Tokens expirados
 
-    ````bash
+    ```bash
     npm run cleanup
     ```
     Elimina tokens expirados de la base de datos
